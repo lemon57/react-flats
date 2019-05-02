@@ -18,8 +18,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <GoogleMap />
         <FlatList flats={ this.state.flats } />
+        <GoogleMap />
 
       </div>
     );
