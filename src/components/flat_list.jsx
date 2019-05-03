@@ -6,12 +6,16 @@ class FlatList extends Component {
     const flats = Object.values(this.props.flats);
     // const arr3 = Object.values(myObject);
     console.log(flats)
-    return flats.map(flat => <Flat
+    return flats.map((flat, index)=> <Flat
                               url = {flat.imageUrl}
-                              key={flat.imageUrl}
+                              key={flat.id}
                               price={flat.price}
                               priceCurrency={flat.priceCurrency}
-                              name={flat.name}/>)
+                              name={flat.name}
+                              id={flat.id}
+                              index={index}
+                              flat={flat}
+                              selectFlat={this.props.selectFlat}/>)
   }
   render () {
     return (
