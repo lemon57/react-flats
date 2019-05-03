@@ -50,7 +50,12 @@ class App extends Component {
           <div className="map-container" style={{ height: '100vh', width: '100%' }}>
             <GoogleMapReact center={center} defaultZoom={12} bootstrapURLKeys={{key:'AIzaSyC4UNTe86-kfXVRScW_Wb3r9zya85El_A8'}}>
               {apparts.map(appart => {
-                return <Marker key={appart.name} lat={appart.lat} lng={appart.lng} text={appart.price}/>
+                return <Marker key={appart.name}
+                               lat={appart.lat}
+                               lng={appart.lng}
+                               text={appart.price}
+                               // selected={flat === this.state.selectedFlat}
+                               selected={appart === this.state.selectedFlat}/>
               })}
             </GoogleMapReact>
           </div>
