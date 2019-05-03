@@ -15,12 +15,9 @@ class App extends Component {
       flats: {...flats},
       selectedFlat: null
     }
-    // console.log(this.state)
-    // const apparts = Object.values(this.state.flats);
-    // console.log(apparts);
   }
 
-
+  // function which save selected flat
   selectFlat = (flat) => {
     console.log(flat);
     this.setState({
@@ -31,12 +28,12 @@ class App extends Component {
   render() {
     const apparts = Object.values(this.state.flats);
     // console.log(apparts);
-
+    // by default set center on the Paris
     let center = {
       lat: 48.8566,
       lng: 2.3522
     }
-
+    // when click on the flat then center on this flat
     if (this.state.selectedFlat) {
     center = {
       lat: this.state.selectedFlat.lat,
@@ -48,13 +45,14 @@ class App extends Component {
       <div>
         <FlatList flats={ this.state.flats } selectFlat = {this.selectFlat} />
           <div className="map-container" style={{ height: '100vh', width: '100%' }}>
+            {/* pass props: center, zoom and APIkey for component GoogleMap */}
             <GoogleMapReact center={center} defaultZoom={12} bootstrapURLKeys={{key:'AIzaSyC4UNTe86-kfXVRScW_Wb3r9zya85El_A8'}}>
               {apparts.map(appart => {
+              {/* pass props for showing markers and selected flat */}
                 return <Marker key={appart.name}
                                lat={appart.lat}
                                lng={appart.lng}
                                text={appart.price}
-                               // selected={flat === this.state.selectedFlat}
                                selected={appart === this.state.selectedFlat}/>
               })}
             </GoogleMapReact>

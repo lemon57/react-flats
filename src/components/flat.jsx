@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class Flat extends Component {
+  // function for onClick event - select flat
   handleClick = () => {
     this.props.selectFlat(this.props.flat);
     // console.log(this.props.flat);

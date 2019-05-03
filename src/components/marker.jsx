@@ -11,6 +11,7 @@ class Marker extends Component {
   // }
 
   render () {
+    // if flat is selected then add selected class
     let classes = "marker";
     if (this.props.selected) {
       classes += " selected";

@@ -3,6 +3,7 @@ import Flat from './flat';
 
 class FlatList extends Component {
   renderFlats = () => {
+    // convert object flats to array
     const flats = Object.values(this.props.flats);
     // const arr3 = Object.values(myObject);
     console.log(flats)
